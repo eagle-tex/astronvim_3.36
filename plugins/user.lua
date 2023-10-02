@@ -11,6 +11,11 @@ return {
   -- },
 
   {
+    "catppuccin/nvim",
+    optional = true,
+    opts = { integrations = { leap = true } },
+  },
+  {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
     -- Or, with AstroCommunity
@@ -80,11 +85,6 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
-    optional = true,
-    opts = { integrations = { leap = true } },
-  },
-  {
     "kevinhwang91/nvim-bqf",
     event = "VeryLazy",
     opts = {},
@@ -98,7 +98,31 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      -- https://github.com/kylechui/nvim-surround/issues/253
+      keymaps = {
+        normal = "ys",
+        delete = "ds",
+        visual = "S",
+        visual_line = "gS",
+        change = "cs",
+        change_line = "cS",
+      },
+
+      -- https://github.com/ggandor/leap.nvim/discussions/59
+      -- keymaps = {
+      --   insert = "<C-g>z",
+      --   insert_line = "gC-ggZ",
+      --   normal = "gz",
+      --   normal_cur = "gZ",
+      --   normal_line = "gzz",
+      --   normal_cur_line = "gZZ",
+      --   visual = "gz",
+      --   visual_line = "gZ",
+      --   delete = "gzd",
+      --   change = "gzr",
+      -- },
+    },
     -- Or, with AstroCommunity
     -- {
     --    "AstroNvim/astrocommunity",
@@ -116,26 +140,28 @@ return {
     config = function(_, opts) require("lsp_signature").setup(opts) end,
   },
   {
-    "Wansmer/treesj",
-    -- keys = { "<space>m", "<space>j", "<space>s" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    keys = {
-      { "<leader>J", desc = "Join" },
-      { "<leader>Jm", "<cmd>TSJToggle<cr>", desc = "Trees toggle" },
-      { "<leader>Jj", "<cmd>TSJJoin<cr>", desc = "Trees join" },
-      { "<leader>Js", "<cmd>TSJSplit<cr>", desc = "Trees split" },
+    {
+      "Wansmer/treesj",
+      -- keys = { "<space>m", "<space>j", "<space>s" },
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      keys = {
+        { "<leader>J", desc = "Join" },
+        { "<leader>Jm", "<cmd>TSJToggle<cr>", desc = "Trees toggle" },
+        { "<leader>Jj", "<cmd>TSJJoin<cr>", desc = "Trees join" },
+        { "<leader>Js", "<cmd>TSJSplit<cr>", desc = "Trees split" },
+      },
+      config = function() require("treesj").setup {} end,
+      -- cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+      -- opts = { use_default_keymaps = false },
     },
-    config = function() require("treesj").setup {} end,
-    -- cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
-    -- opts = { use_default_keymaps = false },
   },
-}
 
--- TODO: Test
--- FIX: Fix
--- HACK: Hack
--- PERF: Perf
--- WARN: Warn
--- NOTE: Note
--- TEST: Test
---
+  -- TODO: Test
+  -- FIX: Fix
+  -- HACK: Hack
+  -- PERF: Perf
+  -- WARN: Warn
+  -- NOTE: Note
+  -- TEST: Test
+  --
+}
