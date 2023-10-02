@@ -10,4 +10,6 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   { import = "astrocommunity.motion.leap-nvim" },
+
+  { import = "astrocommunity.pack.typescript" },
 }
