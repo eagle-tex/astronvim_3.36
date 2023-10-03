@@ -65,6 +65,86 @@ return {
     },
   },
 
+  -- Add dap configurations
+  -- dap = {
+  --   configurations = {
+  --     javascript = { -- set up javascript dap configuration
+  --       {
+  --         type = "pwa-node",
+  --         request = "launch",
+  --         name = "Launch file",
+  --         program = "${file}",
+  --         cwd = "${workspaceFolder}",
+  --       },
+  --       {
+  --         type = "pwa-node",
+  --         request = "attach",
+  --         name = "Attach",
+  --         processId = function(...) return require("dap.utils").pick_process(...) end, -- protect function
+  --         cwd = "${workspaceFolder}",
+  --       },
+  --     },
+  --     typescript = { -- set up typescript dap configuration (does it work??)
+  --       -- {
+  --       --   type = "pwa-node-ts",
+  --       --   request = "launch",
+  --       --   name = "Launch file",
+  --       --   program = "${file}",
+  --       --   cwd = "${workspaceFolder}",
+  --       -- },
+  --       -- {
+  --       --   type = "pwa-node",
+  --       --   request = "attach",
+  --       --   name = "Attach",
+  --       --   processId = function(...) return require("dap.utils").pick_process(...) end, -- protect function
+  --       --   cwd = "${workspaceFolder}",
+  --       -- },
+  --       {
+  --         type = "pwa-node-ts",
+  --         request = "launch",
+  --         name = "Launch file (Typescript)",
+  --         sourceMaps = true,
+  --         preLaunchTask = "tsc --project tsconfig.json",
+  --         resolveSourceMapLocations = {
+  --           "${workspaceFolder}/**",
+  --           "!**/node_modules/**",
+  --         },
+  --         protocol = "inspector",
+  --         skipFiles = { "<node_internals>/**" },
+  --       },
+  --       {
+  --         type = "pwa-node-ts",
+  --         request = "attach",
+  --         name = "Attach",
+  --         processId = function(...) return require("dap.utils").pick_process(...) end, -- protect function
+  --         cwd = "${workspaceFolder}",
+  --         sourceMaps = true,
+  --         resolveSourceMapLocations = {
+  --           "${workspaceFolder}/**",
+  --           "!**/node_modules/**",
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+  -- plugins = {
+  --   init = {
+  --     {
+  --       "mxsdev/nvim-dap-vscode-js",
+  --       after = "mason-nvim-dap.nvim", -- setup after mason which installs the debugger
+  --       config = function()
+  --         require("dap-vscode-js").setup {
+  --           debugger_cmd = { "js-debug-adapter" }, -- mason puts command in path
+  --           adapters = { "pwa-node", "pwa-node-ts" }, -- choose adapter, only node is fully tested
+  --         }
+  --       end,
+  --     },
+  --   },
+  --   ["mason-nvim-dap"] = {
+  --     ensure_installed = { "js" }, -- auto install js-debug-adapter
+  --   },
+  -- },
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here

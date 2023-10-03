@@ -133,6 +133,16 @@ return {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
   },
+  -- {
+  --   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  -- },
+  { "mxsdev/nvim-dap-vscode-js" },
+  {
+    "microsoft/vscode-js-debug",
+    lazy = true,
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+  }, -- end
+
   {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",

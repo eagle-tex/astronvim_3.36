@@ -9,6 +9,11 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 
+  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
+  { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
+  { import = "astrocommunity.debugging.telescope-dap-nvim" },
+
   { import = "astrocommunity.motion.leap-nvim" },
 
   { import = "astrocommunity.pack.typescript" },

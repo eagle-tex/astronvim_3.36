@@ -54,8 +54,10 @@ return {
         "chrome-debug-adapter",
         "cpptools",
         "java-debug-adapter",
+        "js",
         "node-debug2-adapter",
         "python",
+        "ts",
       })
     end,
   },
