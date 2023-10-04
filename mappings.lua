@@ -32,6 +32,9 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+
+    -- does the following line work ? (20231005)
+    ["<F10>"] = { function() require("dap").step_over() end },
     -- ["<leader>a"]={"<cmd>echo 'Hello AstroNvim!'<cr>",desc="Greeting from AstroNvim"},
   },
   t = {
