@@ -6,7 +6,8 @@ return {
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    wrap = false, -- sets vim.opt.wrap
+    wrap = true, -- sets vim.opt.wrap -- was false by default
+    clipboard = "unnamedplus", -- allow neovim to access the system clipboard
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
