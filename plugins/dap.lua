@@ -6,7 +6,8 @@ return {
   },
 
   config = function()
-    local dap = require "dap"
+    -- local dap = require "dap"
+
     -- require("dap").adapters["pwa-node"] = {
     --   type = "server",
     --   host = "localhost",

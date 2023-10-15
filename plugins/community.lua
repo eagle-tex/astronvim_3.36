@@ -14,7 +14,10 @@ return {
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
   { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
-  { import = "astrocommunity.motion.leap-nvim" },
+  { import = "astrocommunity.motion.hop-nvim" },
+  -- { import = "astrocommunity.motion.leap-nvim" },
+  { import = "astrocommunity.motion.mini-surround" },
 
+  { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript" },
 }

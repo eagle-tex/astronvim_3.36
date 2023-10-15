@@ -150,20 +150,29 @@ return {
     config = function(_, opts) require("lsp_signature").setup(opts) end,
   },
   {
-    {
-      "Wansmer/treesj",
-      -- keys = { "<space>m", "<space>j", "<space>s" },
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
-      keys = {
-        { "<leader>J", desc = "Join" },
-        { "<leader>Jm", "<cmd>TSJToggle<cr>", desc = "Trees toggle" },
-        { "<leader>Jj", "<cmd>TSJJoin<cr>", desc = "Trees join" },
-        { "<leader>Js", "<cmd>TSJSplit<cr>", desc = "Trees split" },
-      },
-      config = function() require("treesj").setup {} end,
-      -- cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
-      -- opts = { use_default_keymaps = false },
+    "Wansmer/treesj",
+    -- keys = { "<space>m", "<space>j", "<space>s" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      { "<leader>J", desc = "Join" },
+      { "<leader>Jm", "<cmd>TSJToggle<cr>", desc = "Trees toggle" },
+      { "<leader>Jj", "<cmd>TSJJoin<cr>", desc = "Trees join" },
+      { "<leader>Js", "<cmd>TSJSplit<cr>", desc = "Trees split" },
     },
+    config = function() require("treesj").setup {} end,
+    -- cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+    -- opts = { use_default_keymaps = false },
+  },
+  {
+    "windwp/nvim-spectre",
+    event = "BufRead",
+    config = function() require("spectre").setup() end,
+  },
+  -- nvim-ts-autotag (autoclose and autorename html tags)
+  {
+    "windwp/nvim-ts-autotag",
+    -- event = "InsertEnter",
+    config = function() require("nvim-ts-autotag").setup() end,
   },
 
   -- TODO: Test
