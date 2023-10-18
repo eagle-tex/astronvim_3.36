@@ -15,6 +15,78 @@ return {
   { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
   { import = "astrocommunity.motion.hop-nvim" },
+  {
+    "phaazon/hop.nvim",
+    branch = "v2",
+    opts = {},
+    keys = function()
+      local hop = require "hop"
+      local directions = require("hop.hint").HintDirection
+      return {
+        {
+          "s",
+          function() require("hop").hint_words() end,
+          mode = { "n" },
+          desc = "Hop hint words",
+        },
+        {
+          "<S-s>",
+          function() require("hop").hint_lines() end,
+          mode = { "n" },
+          desc = "Hop hint lines",
+        },
+        {
+          "s",
+          function() require("hop").hint_words { extend_visual = true } end,
+          mode = { "v" },
+          desc = "Hop hint words",
+        },
+        {
+          "<S-s>",
+          function() require("hop").hint_lines { extend_visual = true } end,
+          mode = { "v" },
+          desc = "Hop hint lines",
+        },
+
+        {
+          "f",
+          function() hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true } end,
+          mode = { "n" },
+          desc = "Hop hint 1 char forward to",
+        },
+        {
+          "<S-f>",
+          function() hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true } end,
+          mode = { "n" },
+          desc = "Hop hint 1 char backward to",
+        },
+        {
+          "t",
+          function()
+            hop.hint_char1 {
+              direction = directions.AFTER_CURSOR,
+              current_line_only = true,
+              hint_offset = -1,
+            }
+          end,
+          mode = { "n" },
+          desc = "Hop hint 1 char forward before",
+        },
+        {
+          "<S-t>",
+          function()
+            hop.hint_char1 {
+              direction = directions.BEFORE_CURSOR,
+              current_line_only = true,
+              hint_offset = 1,
+            }
+          end,
+          mode = { "n" },
+          desc = "Hop hint 1 char backward before",
+        },
+      }
+    end,
+  },
   -- { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.mini-surround" },
 
