@@ -19,6 +19,7 @@ return {
 
   -- Set colorscheme to use
   colorscheme = "astrodark",
+  -- colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -52,6 +53,24 @@ return {
     servers = {
       -- "pyright"
     },
+    -- https://github.com/AstroNvim/AstroNvim/issues/1420
+    -- Add overrides for LSP server settings, the keys are the name of the server
+    ["server-settings"] = {
+      eslint = {
+        -- settings = {
+        --   codeActionOnSave = {
+        --     enable = true,
+        --   },
+        -- },
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+            command = "silent! EslintFixAll",
+          })
+        end,
+      },
+    },
   },
 
   -- Configure require("lazy").setup() options
@@ -61,6 +80,34 @@ return {
       rtp = {
         -- customize default disabled vim plugins
         disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin", "netrwPlugin", "tarPlugin" },
+      },
+    },
+  },
+
+  plugins = {
+    -- Show hidden files in file tree
+    -- https://github.com/AstroNvim/AstroNvim/issues/631
+    ["neo-tree"] = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_by_name = {
+            -- '.git',
+            -- '.DS_Store',
+            -- 'node_modules'
+          },
+          never_show = {},
+        },
+      },
+    },
+    -- Show hidden files in Telescope
+    -- https://github.com/AstroNvim/AstroNvim/issues/799
+    telescope = {
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
       },
     },
   },
