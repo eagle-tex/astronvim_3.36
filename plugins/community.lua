@@ -5,7 +5,7 @@ return {
   -- example of importing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
-  -- { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 
@@ -92,4 +92,21 @@ return {
 
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript" },
+
+  -- Find and replace
+  { import = "astrocommunity.project.nvim-spectre" },
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>s", desc = "Search & Replace" },
+      { "<leader>ss", '<cmd>lua require("spectre").toggle()<cr>', desc = "Toggle Spectre" },
+      { "<leader>sp", '<cmd>lua require("spectre").toggle()<cr>', desc = "Search on Current File" },
+      {
+        "<leader>sw",
+        '<cmd>lua require("spectre").open_visual({select_word=true})<cr>',
+        desc = "Search Current Word",
+      },
+    },
+  },
 }
