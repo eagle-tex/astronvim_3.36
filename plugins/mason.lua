@@ -17,6 +17,7 @@ return {
         "lua_ls",
         "pyright",
         "rust_analyzer",
+        "tailwindcss",
         "tsserver",
         "yamlls",
       })
@@ -35,13 +36,14 @@ return {
         "commitlint",
         "cpplint",
         "editorconfig-checker",
-        "eslint_d",
+        -- "eslint_d",
         "flake8",
         "google-java-format",
         "jsonlint",
         "prettierd",
         "stylua",
       })
+      -- opts.automatic_installation = { exclude = { "eslint-lsp" } } // added on 20231104 (remove to clean)
     end,
   },
   {
