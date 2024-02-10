@@ -33,14 +33,24 @@ return {
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
+    -- ["<leader>s"] = { desc = "Search & Replace" },
+    -- ["<leader>ss"] = { '<cmd>lua require("spectre").toggle()<cr>', { desc = "Toggle Spectre" } },
+    -- ["<leader>sp"] = { '<cmd>lua require("spectre").toggle()<cr>', { desc = "Search on Current File" } },
+    -- ["<leader>sw"] = {
+    --   '<cmd>lua require("spectre").open_visual({select_word=true})<cr>',
+    --   { desc = "Search Current Word" },
+    -- },
+
     -- does the following line work ? (20231005)
-    ["<F10>"] = { function() require("dap").step_over() end },
+    -- ["<F10>"] = { function() require("dap").step_over() end },
     -- ["<leader>a"]={"<cmd>echo 'Hello AstroNvim!'<cr>",desc="Greeting from AstroNvim"},
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
-  v = {},
+  v = {
+    -- ["<leader>sw"] = { '<cmd>lua require("spectre").open_visual()<cr>', { desc = "Search Current Word" } },
+  },
   i = {},
 }
